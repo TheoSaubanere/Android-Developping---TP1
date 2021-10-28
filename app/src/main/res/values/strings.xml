@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name" translatable="false">TP1</string>
+    <string name="text_example">Blabla</string>
+    <string name="cliquez_moi">Cliquez-moi</string>
+    <string name="photo_de_profil">Photo de profil</string>
+</resources>
