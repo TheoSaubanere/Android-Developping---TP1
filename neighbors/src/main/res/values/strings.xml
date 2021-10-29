@@ -2,4 +2,7 @@
     <string name="app_name" translatable="false">Neighbors</string>
     <string name="icone_personne">Icône d\'une personne</string>
     <string name="icone_supprimer">Icône supprimer</string>
+    <string name="oui">Oui</string>
+    <string name="non">Non</string>
+    <string name="dialog_title">Voulez-vous supprimer ce(tte) voisin(e) ?</string>
 </resources>

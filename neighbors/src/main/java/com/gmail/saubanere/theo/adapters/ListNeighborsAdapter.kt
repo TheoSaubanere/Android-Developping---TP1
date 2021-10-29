@@ -13,9 +13,12 @@ import com.gmail.saubanere.theo.neighbors.fragments.R
 import com.gmail.saubanere.theo.neightbors.models.Neighbor
 
 class ListNeighborsAdapter(
-    items: List<Neighbor>
+    items: List<Neighbor>,
+    handler: ListNeighborHandler
 ) : RecyclerView.Adapter<ListNeighborsAdapter.ViewHolder>() {
     private val mNeighbours: List<Neighbor> = items
+    private val mHandler: ListNeighborHandler = handler
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.neighbor_item, parent, false)
@@ -37,6 +40,11 @@ class ListNeighborsAdapter(
             .error(R.drawable.ic_baseline_person_outline_24)
             .skipMemoryCache(false)
             .into(holder.mNeighbourAvatar)
+
+        // Delete Neighbour
+        holder.mDeleteButton.setOnClickListener {
+            mHandler.onDeleteNeighbor(neighbour)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -45,15 +53,8 @@ class ListNeighborsAdapter(
 
     class ViewHolder(view: View) :
         RecyclerView.ViewHolder(view) {
-        val mNeighbourAvatar: ImageView
-        val mNeighbourName: TextView
-        val mDeleteButton: ImageButton
-
-        init {
-            // Enable click on item
-            mNeighbourAvatar = view.findViewById(R.id.item_list_avatar)
-            mNeighbourName = view.findViewById(R.id.item_list_name)
-            mDeleteButton = view.findViewById(R.id.item_list_delete_button)
-        }
+        val mNeighbourAvatar: ImageView = view.findViewById(R.id.item_list_avatar)
+        val mNeighbourName: TextView = view.findViewById(R.id.item_list_name)
+        val mDeleteButton: ImageButton = view.findViewById(R.id.item_list_delete_button)
     }
 }

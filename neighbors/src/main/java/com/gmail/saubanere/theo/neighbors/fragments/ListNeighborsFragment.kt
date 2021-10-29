@@ -1,5 +1,6 @@
 package com.gmail.saubanere.theo.neighbors.fragments
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.gmail.saubanere.theo.adapters.ListNeighborHandler
 import com.gmail.saubanere.theo.adapters.ListNeighborsAdapter
 import com.gmail.saubanere.theo.data.NeighborRepository
+import com.gmail.saubanere.theo.data.service.DummyNeighborApiService
 import com.gmail.saubanere.theo.neightbors.models.Neighbor
 
 class ListNeighborsFragment : Fragment(), ListNeighborHandler {
@@ -35,11 +37,32 @@ class ListNeighborsFragment : Fragment(), ListNeighborHandler {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val neighbors = NeighborRepository.getInstance().getNeighbours()
-        val adapter = ListNeighborsAdapter(neighbors)
-        recyclerView.adapter = adapter
+        refreshList()
     }
 
-    override fun onDeleteNeibor(neighbor: Neighbor) {
+    override fun onDeleteNeighbor(neighbor: Neighbor) {
+        activity?.let {
+            val builder = AlertDialog.Builder(it)
+            builder.setTitle(R.string.dialog_title)
+            builder.apply {
+                setPositiveButton(R.string.oui) { dialog, _ ->
+                    val dummyNeighborApiService = DummyNeighborApiService()
+                    dummyNeighborApiService.deleteNeighbour(neighbor)
+                    dialog.dismiss()
+                    NeighborRepository.getInstance().deleteNeighbor(neighbor)
+                    refreshList()
+                }
+                setNegativeButton(R.string.non) { dialog, _ ->
+                    dialog.dismiss()
+                }
+            }
+            builder.create().show()
+        }
+    }
+
+    private fun refreshList() {
+        val neighbors = NeighborRepository.getInstance().getNeighbours()
+        val adapter = ListNeighborsAdapter(neighbors, this)
+        recyclerView.adapter = adapter
     }
 }
