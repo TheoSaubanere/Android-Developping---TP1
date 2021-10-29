@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name" translatable="false">Neighbors</string>
+    <string name="icone_personne">Icône d\'une personne</string>
+    <string name="icone_supprimer">Icône supprimer</string>
+</resources>
