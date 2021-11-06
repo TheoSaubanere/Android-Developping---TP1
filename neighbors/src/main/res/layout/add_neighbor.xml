@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/item_list_avatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_baseline_person_outline_24"
+        android:contentDescription="@string/icone_personne" />
+
+    <TextView
+        android:id="@+id/champs"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="@color/rouge"
+        android:text="@string/champs"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_list_avatar" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/imageLabel"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/champs"
+        android:layout_margin="10dp"
+        app:errorEnabled="true"
+        app:helperTextEnabled="true"
+        app:helperText="@string/web_helper_text"
+        app:errorContentDescription="@string/web_helper_text">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/imageInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/image"
+            android:inputType="text"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nomLabel"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/imageLabel"
+        android:layout_margin="10dp"
+        app:errorContentDescription="@string/nom_helper_text">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nomInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/nom"
+            android:inputType="text"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/telephoneLabel"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/nomLabel"
+        android:layout_margin="10dp"
+        app:helperTextEnabled="true"
+        app:helperText="@string/telephone_helper_text"
+        app:counterEnabled="true"
+        app:counterMaxLength="10"
+        app:errorEnabled="true"
+        app:errorContentDescription="@string/telephone_helper_text">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/telephoneInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/telephone"
+            android:inputType="number"
+            />
+            </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/websteLabel"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/telephoneLabel"
+        android:layout_margin="10dp"
+        app:errorEnabled="true"
+        app:helperTextEnabled="true"
+        app:helperText="@string/web_helper_text"
+        app:errorContentDescription="@string/web_helper_text">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/websteInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/webste"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/adresseLabel"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/websteLabel"
+        android:layout_margin="10dp"
+        app:errorEnabled="true"
+        app:helperTextEnabled="true"
+        app:helperText="@string/mail_helper_text"
+        app:errorContentDescription="@string/mail_helper_text">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/adresseInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/adresse"
+            android:inputType="textEmailAddress"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/aProposLabel"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/adresseLabel"
+        android:layout_margin="10dp"
+        app:errorEnabled="true"
+        app:counterEnabled="true"
+        app:counterMaxLength="30"
+        app:helperTextEnabled="true"
+        app:helperText="@string/a_Propos_helper_text"
+        app:errorContentDescription="@string/a_Propos_helper_text">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/aProposInput"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:ems="10"
+            android:maxLength="30"
+            android:hint="@string/a_Propos"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+    android:id="@+id/enregistrerButton"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cornerRadius="@android:dimen/app_icon_size"
+    android:layout_margin="10dp"
+    android:text="@string/enregistrer"
+    app:layout_constraintTop_toBottomOf="@+id/aProposLabel" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,10 +13,13 @@ import com.gmail.saubanere.theo.adapters.ListNeighborHandler
 import com.gmail.saubanere.theo.adapters.ListNeighborsAdapter
 import com.gmail.saubanere.theo.data.NeighborRepository
 import com.gmail.saubanere.theo.data.service.DummyNeighborApiService
+import com.gmail.saubanere.theo.neighbors.fragments.ui.main.NavigationListener
 import com.gmail.saubanere.theo.neightbors.models.Neighbor
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ListNeighborsFragment : Fragment(), ListNeighborHandler {
     private lateinit var recyclerView: RecyclerView
+    private lateinit var addNeighbor: FloatingActionButton
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,6 +28,8 @@ class ListNeighborsFragment : Fragment(), ListNeighborHandler {
     ): View? {
         val view = inflater.inflate(R.layout.list_neighbors_fragment, container, false)
         recyclerView = view.findViewById(R.id.neighbors_list)
+        addNeighbor = view.findViewById(R.id.addNeighbor)
+
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.addItemDecoration(
             DividerItemDecoration(
@@ -32,6 +37,9 @@ class ListNeighborsFragment : Fragment(), ListNeighborHandler {
                 DividerItemDecoration.VERTICAL
             )
         )
+        addNeighbor.setOnClickListener {
+            (activity as? NavigationListener)?.showFragment(AddNeighbourFragment())
+        }
         return view
     }
 
