@@ -40,6 +40,7 @@ class ListNeighborsFragment : Fragment(), ListNeighborHandler {
         addNeighbor.setOnClickListener {
             (activity as? NavigationListener)?.showFragment(AddNeighbourFragment())
         }
+        (activity as? NavigationListener)?.updateTitle(R.string.titre_liste)
         return view
     }
 

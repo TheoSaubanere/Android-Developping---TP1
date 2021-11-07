@@ -8,16 +8,18 @@
     <string name="image">Image</string>
     <string name="nom">Nom</string>
     <string name="telephone">Téléphone</string>
-    <string name="webste">Webste</string>
+    <string name="webste">Site web</string>
     <string name="adresse">Adresse mail</string>
     <string name="a_Propos">A propos de moi</string>
     <string name="enregistrer">Enregistrer</string>
     <string name="icone_ajouter">Icône ajouter</string>
     <string name="voisin_enregistre">Nouveau voisin bien enregistré</string>
-    <string name="web_helper_text">http://***.*******.*** ou https://***.*******.***</string>
-    <string name="telephone_helper_text">06 ** ** ** ** ou 07 ** ** ** **</string>
+    <string name="web_helper_text" translatable="false">http://***.*******.*** ou https://***.*******.***</string>
+    <string name="telephone_helper_text" translatable="false">06 ** ** ** ** ou 07 ** ** ** **</string>
     <string name="a_Propos_helper_text">Ce champ doit être inférieur à 30 caractères</string>
-    <string name="mail_helper_text">*********@****.***</string>
+    <string name="mail_helper_text" translatable="false">*********@****.***</string>
     <string name="champs">Tous les champs sont obligatoires</string>
     <string name="nom_helper_text">Il faut renseigner ce champ</string>
+    <string name="titre_liste">Liste des voisins</string>
+    <string name="titre_ajout">Nouveau voisin</string>
 </resources>

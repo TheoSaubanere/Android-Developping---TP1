@@ -59,6 +59,7 @@ class AddNeighbourFragment : Fragment(), TextWatcher {
                 (activity as? NavigationListener)?.showFragment(ListNeighborsFragment())
             }
         }
+        (activity as? NavigationListener)?.updateTitle(R.string.titre_ajout)
         return binding.root
     }
 
@@ -87,7 +88,7 @@ class AddNeighbourFragment : Fragment(), TextWatcher {
                     .into(itemListAvatar)
             } else imageInput.error = getString(R.string.web_helper_text)
 
-            if (nomInput.text.toString().isNotBlank()  && !nomInput.text.isNullOrEmpty()) {
+            if (nomInput.text.toString().isNotBlank() && !nomInput.text.isNullOrEmpty()) {
                 nomLabel.error = null
                 nom = true
             } else nomInput.error = getString(R.string.nom_helper_text)
@@ -95,23 +96,25 @@ class AddNeighbourFragment : Fragment(), TextWatcher {
             if ((
                 telephoneInput.text.toString()
                     .startsWith("06") || telephoneInput.text.toString().startsWith("07")
-                ) && telephoneInput.text.toString().length == 10  && !telephoneInput.text.isNullOrEmpty()
+                ) && telephoneInput.text.toString().length == 10 && !telephoneInput.text.isNullOrEmpty()
             ) {
                 telephoneLabel.error = null
                 telephone = true
             } else telephoneInput.error = getString(R.string.telephone_helper_text)
 
-            if (URLUtil.isValidUrl(websteInput.text.toString())  && !websteInput.text.isNullOrEmpty()) {
+            if (URLUtil.isValidUrl(websteInput.text.toString()) && !websteInput.text.isNullOrEmpty()) {
                 websteLabel.error = null
                 webste = true
             } else websteInput.error = getString(R.string.web_helper_text)
 
-            if (Patterns.EMAIL_ADDRESS.matcher(adresseInput.text.toString()).matches()  && !adresseInput.text.isNullOrEmpty()) {
+            if (Patterns.EMAIL_ADDRESS.matcher(adresseInput.text.toString())
+                .matches() && !adresseInput.text.isNullOrEmpty()
+            ) {
                 adresseLabel.error = null
                 adresse = true
             } else adresseInput.error = getString(R.string.mail_helper_text)
 
-            if (aProposInput.text.toString().length <= 30  && !aProposInput.text.isNullOrEmpty()) {
+            if (aProposInput.text.toString().length <= 30 && !aProposInput.text.isNullOrEmpty()) {
                 aProposLabel.error = null
                 aPropos = true
             } else aProposInput.error = getString(R.string.a_Propos_helper_text)
